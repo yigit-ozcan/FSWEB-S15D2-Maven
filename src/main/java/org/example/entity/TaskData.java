@@ -26,6 +26,8 @@ public class TaskData {
         }
 
         switch (name.toLowerCase()) {
+            case "unassigned":
+                return unassignedTasks;
             case "ann":
                 return annsTasks;
             case "bob":
@@ -43,5 +45,45 @@ public class TaskData {
                 return Set.of();
         }
     }
+
+    public Set<Task> getUnion(Set<Task>... sets) {
+        if (sets == null) {
+            return Set.of();
+        }
+
+        Set<Task> result = new HashSet<>();
+        for (Set<Task> set : sets) {
+            if (set != null) {
+                result.addAll(set);
+            }
+        }
+
+        return Collections.unmodifiableSet(result);
+    }
+
+    public Set<Task> getIntersect(Set<Task> set1, Set<Task> set2) {
+        if (set1 == null || set2 == null) {
+            return Set.of();
+        }
+
+        Set<Task> result = new HashSet<>(set1);
+        result.retainAll(set2);
+        return Collections.unmodifiableSet(result);
+    }
+
+    public Set<Task> getDifference(Set<Task> set1, Set<Task> set2) {
+        if (set1 == null) {
+            return Set.of();
+        }
+
+        Set<Task> result = new HashSet<>(set1);
+        if (set2 != null) {
+            result.removeAll(set2);
+        }
+
+        return Collections.unmodifiableSet(result);
+    }
+
+
 
 }

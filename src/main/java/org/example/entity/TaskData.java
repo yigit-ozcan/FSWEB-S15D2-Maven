@@ -5,10 +5,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class TaskData {
-    private final Set<Task> annsTasks;
-    private final Set<Task> bobsTasks;
-    private final Set<Task> carolsTasks;
-    private final Set<Task> unassignedTasks;
+    private Set<Task> annsTasks;
+    private Set<Task> bobsTasks;
+    private Set<Task> carolsTasks;
+    private Set<Task> unassignedTasks;
 
     public TaskData(Set<Task> annsTasks,
                     Set<Task> bobsTasks,
@@ -61,7 +61,7 @@ public class TaskData {
         return Collections.unmodifiableSet(result);
     }
 
-    public Set<Task> getIntersect(Set<Task> set1, Set<Task> set2) {
+    public Set<Task> getIntersection(Set<Task> set1, Set<Task> set2) {
         if (set1 == null || set2 == null) {
             return Set.of();
         }
@@ -71,7 +71,7 @@ public class TaskData {
         return Collections.unmodifiableSet(result);
     }
 
-    public Set<Task> getDifference(Set<Task> set1, Set<Task> set2) {
+    public Set<Task> getDifferences(Set<Task> set1, Set<Task> set2) {
         if (set1 == null) {
             return Set.of();
         }
@@ -83,7 +83,5 @@ public class TaskData {
 
         return Collections.unmodifiableSet(result);
     }
-
-
 
 }

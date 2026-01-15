@@ -12,13 +12,33 @@ public class Task {
     public Task(String project,
                 String description,
                 String assignee,
-                Priority priority,
-                Status status) {
+                Status status,
+                Priority priority) {
         this.project = project;
         this.description = description;
         this.assignee = assignee;
-        this.priority = priority;
         this.status = status;
+        this.priority = priority;
+    }
+
+    public String getProject() {
+        return project;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getAssignee() {
+        return assignee;
+    }
+
+    public Priority getPriority() {
+        return priority;
+    }
+
+    public Status getStatus() {
+        return status;
     }
 
     @Override
